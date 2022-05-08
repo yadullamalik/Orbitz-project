@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import "./Orbitz.css";
+import { useNavigate } from "react-router-dom";
 
 export const Data = ({ sort, filter, filterbyprice }) => {
+  const navigate = useNavigate();
+
   const [data, setData] = useState({
     Delhi: [
       {
@@ -950,9 +953,9 @@ export const Data = ({ sort, filter, filterbyprice }) => {
       setData({ ...data, Banglore: arr });
     }
   };
-  const filterDatabyPrice=()=>{
-    console.log('filterDatabyPrice:', filterDatabyPrice)
-  }
+  const filterDatabyPrice = () => {
+    console.log("filterDatabyPrice:", filterDatabyPrice);
+  };
 
   return (
     <div>
@@ -973,23 +976,26 @@ export const Data = ({ sort, filter, filterbyprice }) => {
           </div>
           <div className="pricediv">
             <h3>${e.price}</h3>
-            <button onClick={() => {
-              
-              const selected = {
-                image : e.image,
-                name : e.name,
-                area : e.area,
-                propertyType : e.propertyType,
-                discription:e.discription,
-                paymentType:e.paymentType,
-                price:e.price,
-                rating:e.rating,
-                reviews:e.reviews
-              }
-              localStorage.setItem("cartItems",JSON.stringify(selected))
-
-             }}
-               className="res">Reserve</button>
+            <button
+              onClick={() => {
+                const selected = {
+                  image: e.image,
+                  name: e.name,
+                  area: e.area,
+                  propertyType: e.propertyType,
+                  discription: e.discription,
+                  paymentType: e.paymentType,
+                  price: e.price,
+                  rating: e.rating,
+                  reviews: e.reviews,
+                };
+                localStorage.setItem("cartItems", JSON.stringify(selected));
+                navigate("/payment");
+              }}
+              className="res"
+            >
+              Reserve
+            </button>
           </div>
         </div>
       ))}
