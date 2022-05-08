@@ -973,7 +973,23 @@ export const Data = ({ sort, filter, filterbyprice }) => {
           </div>
           <div className="pricediv">
             <h3>${e.price}</h3>
-            <button className="res">Reserve</button>
+            <button onClick={() => {
+              
+              const selected = {
+                image : e.image,
+                name : e.name,
+                area : e.area,
+                propertyType : e.propertyType,
+                discription:e.discription,
+                paymentType:e.paymentType,
+                price:e.price,
+                rating:e.rating,
+                reviews:e.reviews
+              }
+              localStorage.setItem("cartItems",JSON.stringify(selected))
+
+             }}
+               className="res">Reserve</button>
           </div>
         </div>
       ))}
