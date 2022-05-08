@@ -5,15 +5,13 @@
 }
 .whatsnew-img {
   height: 250px;
-  overflow: hidden;
 }
 .whatsnew-img > img {
-  margin-top: -120px;
+  margin-top: -0px;
 }
 .whatsnewdiv-1 > h2,
 .whatsnewdiv-1 > p {
   margin-left: 20px;
-  /* margin-bottom: -10px; */
 }
 .whatsnewdiv-1 {
   border: 1px solid rgb(202, 200, 200);
